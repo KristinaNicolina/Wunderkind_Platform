@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Курсы - Вундеркинд</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            padding: var(--space-xxl) 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .courses-section {
+            padding: var(--space-xxl) 0;
+            background-color: var(--light-gray);
+        }
+        
+        .all-courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-xl);
+        }
+        
+        .course-card-large {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s;
+        }
+        
+        .course-card-large:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-image-large {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .course-content-large {
+            padding: var(--space-xl);
+        }
+        
+        .course-badge {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            background-color: var(--light-gray);
+            color: var(--dark-gray);
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+        
+        .course-content-large h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+            color: var(--dark-gray);
+        }
+        
+        .course-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin: var(--space-lg) 0;
+            color: var(--gray);
+        }
+        
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .detail-item i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+        
+        .course-price-large {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--space-lg);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .all-courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Вундеркинд</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="courses.html" class="nav-link active">Курсы</a>
+                <a href="schedule.html" class="nav-link">Расписание</a>
+                <a href="login.html" class="nav-link">Войти</a>
+                <a href="register.html" class="btn btn-primary">Регистрация</a>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Все курсы</h1>
+            <p>Выберите подходящий курс для развития вашего ребенка</p>
+        </div>
+    </section>
+
+    <!-- Все курсы -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="all-courses-grid">
+                <!-- Курс 1 -->
+                <div class="course-card-large">
+                    <div class="course-image-large" style="background-color: #FF7033">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="course-content-large">
+                        <div class="course-badge">Математика</div>
+                        <h3>Юный математик</h3>
+                        <p>Развитие логики и счета для детей 6-7 лет. Игровые задания, интересные задачи, развитие мышления.</p>
+                        
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <span>Преподаватель: Мария Петрова</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Продолжительность: 40 часов</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-signal"></i>
+                                <span>Уровень: Начальный</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>Возраст: 6-7 лет</span>
+                            </div>
+                        </div>
+                        
+                        <div class="course-price-large">12 000 ₽</div>
+                        <a href="#" class="btn btn-primary btn-block">Записаться на курс</a>
+                    </div>
+                </div>
+
+                <!-- Курс 2 -->
+                <div class="course-card-large">
+                    <div class="course-image-large" style="background-color: #6C56FA">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="course-content-large">
+                        <div class="course-badge">Английский язык</div>
+                        <h3>English Explorer</h3>
+                        <p>Английский язык в игровой форме для детей 5-7 лет. Песни, игры, мультфильмы на английском.</p>
+                        
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <span>Преподаватель: Иван Смирнов</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Продолжительность: 48 часов</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-signal"></i>
+                                <span>Уровень: Начальный</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>Возраст: 5-7 лет</span>
+                            </div>
+                        </div>
+                        
+                        <div class="course-price-large">15 000 ₽</div>
+                        <a href="#" class="btn btn-primary btn-block">Записаться на курс</a>
+                    </div>
+                </div>
+
+                <!-- Курс 3 -->
+                <div class="course-card-large">
+                    <div class="course-image-large" style="background-color: #28B066">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="course-content-large">
+                        <div class="course-badge">Робототехника</div>
+                        <h3>Робототехника Lego</h3>
+                        <p>Основы программирования для детей 7-10 лет. Сборка роботов, программирование, решение задач.</p>
+                        
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <span>Преподаватель: Ольга Козлова</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Продолжительность: 50 часов</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-signal"></i>
+                                <span>Уровень: Продвинутый</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>Возраст: 7-10 лет</span>
+                            </div>
+                        </div>
+                        
+                        <div class="course-price-large">18 000 ₽</div>
+                        <a href="#" class="btn btn-primary btn-block">Записаться на курс</a>
+                    </div>
+                </div>
+
+                <!-- Курс 4 -->
+                <div class="course-card-large">
+                    <div class="course-image-large" style="background-color: #FFB8B8">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <div class="course-content-large">
+                        <div class="course-badge">Рисование</div>
+                        <h3>Волшебная кисть</h3>
+                        <p>Изобразительное искусство для детей 4-6 лет. Акварель, гуашь, пастель, развитие творчества.</p>
+                        
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <span>Преподаватель: Мария Петрова</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Продолжительность: 36 часов</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-signal"></i>
+                                <span>Уровень: Начальный</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>Возраст: 4-6 лет</span>
+                            </div>
+                        </div>
+                        
+                        <div class="course-price-large">9 000 ₽</div>
+                        <a href="#" class="btn btn-primary btn-block">Записаться на курс</a>
+                    </div>
+                </div>
+
+                <!-- Курс 5 -->
+                <div class="course-card-large">
+                    <div class="course-image-large" style="background-color: #FFD14A">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="course-content-large">
+                        <div class="course-badge">Музыка</div>
+                        <h3>Музыкальная шкатулка</h3>
+                        <p>Основы музыки и ритма для детей 3-5 лет. Пение, игра на инструментах, развитие слуха.</p>
+                        
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <span>Преподаватель: Иван Смирнов</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Продолжительность: 30 часов</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-signal"></i>
+                                <span>Уровень: Начальный</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>Возраст: 3-5 лет</span>
+                            </div>
+                        </div>
+                        
+                        <div class="course-price-large">8 000 ₽</div>
+                        <a href="#" class="btn btn-primary btn-block">Записаться на курс</a>
+                    </div>
+                </div>
+
+                <!-- Курс 6 -->
+                <div class="course-card-large">
+                    <div class="course-image-large" style="background-color: #C4E2FF">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="course-content-large">
+                        <div class="course-badge">Логика</div>
+                        <h3>Логические задачки</h3>
+                        <p>Развитие мышления для детей 6-8 лет. Головоломки, задачи на логику, стратегические игры.</p>
+                        
+                        <div class="course-details">
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <span>Преподаватель: Ольга Козлова</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>Продолжительность: 35 часов</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-signal"></i>
+                                <span>Уровень: Средний</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-users"></i>
+                                <span>Возраст: 6-8 лет</span>
+                            </div>
+                        </div>
+                        
+                        <div class="course-price-large">11 000 ₽</div>
+                        <a href="#" class="btn btn-primary btn-block">Записаться на курс</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Вундеркинд</span>
+                    </div>
+                    <p>Образовательная платформа для развития детских талантов</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +7 (999) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> info@wunderkind26.ru</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Образовательная платформа "Вундеркинд". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Мобильное меню
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '100%';
+                navMenu.style.left = '0';
+                navMenu.style.right = '0';
+                navMenu.style.backgroundColor = '#FFFFFF';
+                navMenu.style.padding = '24px';
+                navMenu.style.boxShadow = '0 8px 16px rgba(0,0,0,0.15)';
+                navMenu.style.zIndex = '1000';
+            }
+        });
+    </script>
+</body>
+</html>

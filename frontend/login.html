@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход - Вундеркинд</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .auth-section {
+            min-height: calc(100vh - 200px);
+            display: flex;
+            align-items: center;
+            padding: var(--space-xxl) 0;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--white) 100%);
+        }
+        
+        .auth-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: var(--white);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+        
+        .auth-header {
+            padding: var(--space-xl);
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+        }
+        
+        .auth-header h1 {
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .auth-form {
+            padding: var(--space-xl);
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius-md);
+            font-family: 'League Spartan', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            cursor: pointer;
+        }
+        
+        .forgot-password {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .btn-block {
+            width: 100%;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .auth-footer {
+            text-align: center;
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .auth-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .test-accounts {
+            padding: var(--space-xl);
+            background-color: var(--light-gray);
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .test-accounts h3 {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+            color: var(--dark-gray);
+        }
+        
+        .test-account-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+        }
+        
+        .test-account {
+            background-color: var(--white);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .test-account h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--space-sm);
+            font-size: 0.9rem;
+        }
+        
+        .test-account p {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: var(--space-xs);
+        }
+        
+        @media (max-width: 768px) {
+            .auth-container {
+                margin: 0 var(--space-md);
+            }
+            
+            .test-account-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Вундеркинд</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="courses.html" class="nav-link">Курсы</a>
+                <a href="schedule.html" class="nav-link">Расписание</a>
+                <a href="login.html" class="nav-link active">Войти</a>
+                <a href="register.html" class="btn btn-primary">Регистрация</a>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Форма входа -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h1>Вход в личный кабинет</h1>
+                    <p>Введите ваши учетные данные для доступа к платформе</p>
+                </div>
+                
+                <form class="auth-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="Ваш email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" name="password" required placeholder="Ваш пароль">
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="checkbox">
+                            <input type="checkbox" id="remember">
+                            <span>Запомнить меня</span>
+                        </label>
+                        <a href="#" class="forgot-password">Забыли пароль?</a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Войти</button>
+                    
+                    <div class="auth-footer">
+                        <p>Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+                    </div>
+                </form>
+                
+                <div class="test-accounts">
+                    <h3>Тестовые учетные записи</h3>
+                    <div class="test-account-grid">
+                        <div class="test-account">
+                            <h4>Администратор</h4>
+                            <p>Email: admin@wunderkind.ru</p>
+                            <p>Пароль: admin123</p>
+                        </div>
+                        <div class="test-account">
+                            <h4>Учитель</h4>
+                            <p>Email: teacher1@wunderkind.ru</p>
+                            <p>Пароль: teacher123</p>
+                        </div>
+                        <div class="test-account">
+                            <h4>Родитель</h4>
+                            <p>Email: parent1@wunderkind.ru</p>
+                            <p>Пароль: parent123</p>
+                        </div>
+                        <div class="test-account">
+                            <h4>Ученик</h4>
+                            <p>Email: student1@wunderkind.ru</p>
+                            <p>Пароль: student123</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Вундеркинд</span>
+                    </div>
+                    <p>Образовательная платформа для развития детских талантов</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +7 (999) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> info@wunderkind26.ru</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Образовательная платформа "Вундеркинд". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Мобильное меню
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '100%';
+                navMenu.style.left = '0';
+                navMenu.style.right = '0';
+                navMenu.style.backgroundColor = '#FFFFFF';
+                navMenu.style.padding = '24px';
+                navMenu.style.boxShadow = '0 8px 16px rgba(0,0,0,0.15)';
+                navMenu.style.zIndex = '1000';
+            }
+        });
+        
+        // Обработка формы входа
+        document.querySelector('.auth-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Простая демонстрация входа
+            if (email && password) {
+                alert('Вход успешен! В полной версии будет подключение к API.');
+                // В реальном приложении здесь будет запрос к API
+                // window.location.href = 'dashboard.html';
+            } else {
+                alert('Заполните все поля');
+            }
+        });
+        
+        // Автозаполнение тестовых данных
+        document.querySelectorAll('.test-account').forEach(account => {
+            account.addEventListener('click', function() {
+                const email = this.querySelector('p:nth-child(2)').textContent.replace('Email: ', '');
+                const password = this.querySelector('p:nth-child(3)').textContent.replace('Пароль: ', '');
+                
+                document.getElementById('email').value = email;
+                document.getElementById('password').value = password;
+            });
+        });
+    </script>
+</body>
+</html>

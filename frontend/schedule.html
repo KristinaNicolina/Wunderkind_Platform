@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание - Вундеркинд</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .page-header {
+            padding: var(--space-xxl) 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .schedule-section {
+            padding: var(--space-xxl) 0;
+            background-color: var(--light-gray);
+        }
+        
+        .week-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+            padding: var(--space-md);
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .week-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+        
+        .week-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .day-header {
+            text-align: center;
+            padding: var(--space-md);
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            color: var(--dark-gray);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .day-header.today {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: var(--space-lg);
+        }
+        
+        .schedule-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .schedule-card.math {
+            border-left-color: #FF7033;
+        }
+        
+        .schedule-card.english {
+            border-left-color: #28B066;
+        }
+        
+        .schedule-card.art {
+            border-left-color: #FFB8B8;
+        }
+        
+        .schedule-card.robotics {
+            border-left-color: #6C56FA;
+        }
+        
+        .course-tag {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+        }
+        
+        .course-tag.math {
+            background-color: rgba(255, 112, 51, 0.1);
+            color: #FF7033;
+        }
+        
+        .course-tag.english {
+            background-color: rgba(40, 176, 102, 0.1);
+            color: #28B066;
+        }
+        
+        .course-tag.art {
+            background-color: rgba(255, 184, 184, 0.1);
+            color: #FF6B6B;
+        }
+        
+        .course-tag.robotics {
+            background-color: rgba(108, 86, 250, 0.1);
+            color: #6C56FA;
+        }
+        
+        .schedule-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--space-sm);
+            color: var(--dark-gray);
+        }
+        
+        .schedule-details {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin: var(--space-lg) 0;
+            color: var(--gray);
+        }
+        
+        .detail-row {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .detail-row i {
+            color: var(--primary-color);
+            width: 20px;
+        }
+        
+        .time-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-xs) var(--space-md);
+            background-color: var(--light-gray);
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .week-days {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .week-navigation {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .week-days {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Вундеркинд</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="courses.html" class="nav-link">Курсы</a>
+                <a href="schedule.html" class="nav-link active">Расписание</a>
+                <a href="login.html" class="nav-link">Войти</a>
+                <a href="register.html" class="btn btn-primary">Регистрация</a>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Заголовок страницы -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Расписание занятий</h1>
+            <p>Планируйте обучение и отслеживайте занятия</p>
+        </div>
+    </section>
+
+    <!-- Расписание -->
+    <section class="schedule-section">
+        <div class="container">
+            <!-- Навигация по неделям -->
+            <div class="week-navigation">
+                <button class="btn btn-outline">
+                    <i class="fas fa-chevron-left"></i> Предыдущая неделя
+                </button>
+                <div class="week-title">Неделя 15-21 января 2024</div>
+                <button class="btn btn-outline">
+                    Следующая недел�� <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Дни недели -->
+            <div class="week-days">
+                <div class="day-header">Понедельник<br>15 янв</div>
+                <div class="day-header">Вторник<br>16 янв</div>
+                <div class="day-header">Среда<br>17 янв</div>
+                <div class="day-header">Четверг<br>18 янв</div>
+                <div class="day-header today">Пятница<br>19 янв</div>
+                <div class="day-header">Суббота<br>20 янв</div>
+                <div class="day-header">Воскресенье<br>21 янв</div>
+            </div>
+
+            <!-- Занятия -->
+            <div class="schedule-grid">
+                <!-- Занятие 1 -->
+                <div class="schedule-card math">
+                    <div class="course-tag math">Математика</div>
+                    <h3>Юный математик - Группа А</h3>
+                    
+                    <div class="schedule-details">
+                        <div class="detail-row">
+                            <i class="fas fa-user"></i>
+                            <span>Преподаватель: Мария Петрова</span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-calendar"></i>
+                            <span>Пятница, 19 января 2024</span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-clock"></i>
+                            <span class="time-badge">
+                                <i class="fas fa-clock"></i> 10:00 - 11:00
+                            </span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Кабинет 101</span>
+                        </div>
+                    </div>
+                    
+                    <p>Тема: Сложение и вычитание в пределах 20. Игровые задания на развитие логики.</p>
+                    <button class="btn btn-primary" style="margin-top: var(--space-md);">Записаться</button>
+                </div>
+
+                <!-- Занятие 2 -->
+                <div class="schedule-card english">
+                    <div class="course-tag english">Английский язык</div>
+                    <h3>English Explorer - Группа В</h3>
+                    
+                    <div class="schedule-details">
+                        <div class="detail-row">
+                            <i class="fas fa-user"></i>
+                            <span>Преподаватель: Иван Смирнов</span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-calendar"></i>
+                            <span>Пятница, 19 января 2024</span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-clock"></i>
+                            <span class="time-badge">
+                                <i class="fas fa-clock"></i> 13:00 - 14:00
+                            </span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Кабинет 103</span>
+                        </div>
+                    </div>
+                    
+                    <p>Тема: Животные и их звуки. Изучение новых слов через песни и игры.</p>
+                    <button class="btn btn-primary" style="margin-top: var(--space-md);">Записаться</button>
+                </div>
+
+                <!-- Занятие 3 -->
+                <div class="schedule-card art">
+                    <div class="course-tag art">Рисование</div>
+                    <h3>Волшебная кисть - Группа С</h3>
+                    
+                    <div class="schedule-details">
+                        <div class="detail-row">
+                            <i class="fas fa-user"></i>
+                            <span>Преподаватель: Мария Петрова</span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-calendar"></i>
+                            <span>Суббота, 20 января 2024</span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-clock"></i>
+                            <span class="time-badge">
+                                <i class="fas fa-clock"></i> 16:00 - 17:00
+                            </span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Кабинет 102</span>
+                        </div>
+                    </div>
+                    
+                    <p>Тема: Рисование акварелью "Зимний пейзаж". Техника смешивания цветов.</p>
+                    <button class="btn btn-primary" style="margin-top: var(--space-md);">Записаться</button>
+                </div>
+
+                <!-- Занятие 4 -->
+                <div class="schedule-card robotics">
+                    <div class="course-tag robotics">Робототехника</div>
+                    <h3>Робототехника Lego - Группа D</h3>
+                    
+                    <div class="schedule-details">
+                        <div class="detail-row">
+                            <i class="fas fa-user"></i>
+                            <span>Преподаватель: Ольга Козлова</span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-calendar"></i>
+                            <span>Суббота, 20 января 2024</span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-clock"></i>
+                            <span class="time-badge">
+                                <i class="fas fa-clock"></i> 11:00 - 12:30
+                            </span>
+                        </div>
+                        <div class="detail-row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Кабинет 104</span>
+                        </div>
+                    </div>
+                    
+                    <p>Тема: Сборка мобильного робота. Основы программирования движения.</p>
+                    <button class="btn btn-primary" style="margin-top: var(--space-md);">Записаться</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Вундеркинд</span>
+                    </div>
+                    <p>Образовательная платформа для развития детских талантов</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +7 (999) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> info@wunderkind26.ru</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Образовательная платформа "Вундеркинд". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Мобильное меню
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '100%';
+                navMenu.style.left = '0';
+                navMenu.style.right = '0';
+                navMenu.style.backgroundColor = '#FFFFFF';
+                navMenu.style.padding = '24px';
+                navMenu.style.boxShadow = '0 8px 16px rgba(0,0,0,0.15)';
+                navMenu.style.zIndex = '1000';
+            }
+        });
+        
+        // Навигация по неделям
+        document.querySelectorAll('.week-navigation button').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Навигация по неделям будет реализована в полной версии');
+            });
+        });
+        
+        // Запись на занятия
+        document.querySelectorAll('.schedule-card .btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const courseName = this.closest('.schedule-card').querySelector('h3').textContent;
+                alert(`Вы записаны на занятие: ${courseName}\n\nВ полной версии будет интеграция с системой бронирования.`);
+            });
+        });
+    </script>
+</body>
+</html>

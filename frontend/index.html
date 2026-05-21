@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вундеркинд - Образовательная платформа для детей</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Вундеркинд</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Главная</a>
+                <a href="courses.html" class="nav-link">Курсы</a>
+                <a href="schedule.html" class="nav-link">Расписание</a>
+                <a href="login.html" class="nav-link">Войти</a>
+                <a href="register.html" class="btn btn-primary">Регистрация</a>
+            </div>
+            <button class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero секция -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Развиваем таланты вашего ребенка</h1>
+                <p class="hero-subtitle">Интерактивная образовательная платформа для детей от 3 до 12 лет. Курсы по математике, английскому, творчеству и робототехнике.</p>
+                <div class="hero-buttons">
+                    <a href="courses.html" class="btn btn-primary btn-large">Выбрать курс</a>
+                    <a href="#features" class="btn btn-secondary btn-large">Узнать больше</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-illustration">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                    <i class="fas fa-book-open"></i>
+                    <i class="fas fa-palette"></i>
+                    <i class="fas fa-robot"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Особенности -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают нас</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Квалифицированные педагоги</h3>
+                    <p>Опытные преподаватели с высшим образованием и любовью к детям</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Игровой формат</h3>
+                    <p>Обучение через игру и интерактивные задания</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Отслеживание прогресса</h3>
+                    <p>Родители видят успехи ребенка в реальном времени</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Индивидуальный подход</h3>
+                    <p>Маленькие группы и персональные рекомендации</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Популярные курсы -->
+    <section class="courses-preview">
+        <div class="container">
+            <h2 class="section-title">Популярные курсы</h2>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image" style="background-color: #FF7033">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Юный математик</h3>
+                        <p>Развитие логики и счета для детей 6-7 лет</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-user"></i> Мария Петрова</span>
+                            <span><i class="fas fa-clock"></i> 40 ч.</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-price">12 000 ₽</span>
+                            <a href="#" class="btn btn-small">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image" style="background-color: #6C56FA">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>English Explorer</h3>
+                        <p>Английский язык в игровой форме для детей 5-7 лет</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-user"></i> Иван Смирнов</span>
+                            <span><i class="fas fa-clock"></i> 48 ч.</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-price">15 000 ₽</span>
+                            <a href="#" class="btn btn-small">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image" style="background-color: #28B066">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="course-content">
+                        <h3>Робототехника Lego</h3>
+                        <p>Основы программирования для детей 7-10 лет</p>
+                        <div class="course-meta">
+                            <span><i class="fas fa-user"></i> Ольга Козлова</span>
+                            <span><i class="fas fa-clock"></i> 50 ч.</span>
+                        </div>
+                        <div class="course-footer">
+                            <span class="course-price">18 000 ₽</span>
+                            <a href="#" class="btn btn-small">Подробнее</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="courses.html" class="btn btn-outline">Все курсы</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Отзывы родителей</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Мой сын с нетерпением ждет каждое занятие по робототехнике. За 3 месяца научился собирать сложные модели!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">ЕС</div>
+                        <div class="author-info">
+                            <h4>Елена Соколова</h4>
+                            <p>Мама Александра, 7 лет</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Дочь стала увереннее в математике. Учитель находит подход к каждому ребенку, объясняет понятно и интересно."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">АВ</div>
+                        <div class="author-info">
+                            <h4>Алексей Волков</h4>
+                            <p>Папа Софии, 8 лет</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Вундеркинд</span>
+                    </div>
+                    <p>Образовательная платформа для развития детских талантов</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Курсы</h4>
+                    <ul>
+                        <li><a href="courses.html">Математика</a></li>
+                        <li><a href="courses.html">Английский язык</a></li>
+                        <li><a href="courses.html">Творчество</a></li>
+                        <li><a href="courses.html">Робототехника</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Платформа</h4>
+                    <ul>
+                        <li><a href="login.html">Вход</a></li>
+                        <li><a href="register.html">Регистрация</a></li>
+                        <li><a href="schedule.html">Расписание</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> +7 (999) 123-45-67</li>
+                        <li><i class="fas fa-envelope"></i> info@wunderkind26.ru</li>
+                        <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Образцова, 15</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Образовательная платформа "Вундеркинд". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Мобильное меню
+        document.querySelector('.nav-toggle').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '100%';
+                navMenu.style.left = '0';
+                navMenu.style.right = '0';
+                navMenu.style.backgroundColor = '#FFFFFF';
+                navMenu.style.padding = '24px';
+                navMenu.style.boxShadow = '0 8px 16px rgba(0,0,0,0.15)';
+                navMenu.style.zIndex = '1000';
+            }
+        });
+    </script>
+</body>
+</html>
